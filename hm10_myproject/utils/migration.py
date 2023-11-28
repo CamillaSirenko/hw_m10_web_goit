@@ -3,7 +3,7 @@ import django
 
 from pymongo import MongoClient
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'quotes_to_scrape.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hm10_myproject.settings')
 django.setup()
 
 from quotes.models import Author, Quote, Tag
