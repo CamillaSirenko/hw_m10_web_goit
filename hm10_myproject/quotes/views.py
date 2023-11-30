@@ -28,6 +28,10 @@ def add_quote(request):
             new_quote = form.save(commit=False)
             new_quote.user = request.user
             new_quote.save()
+            tag_name = form.cleaned_data["tags"]
+            for tag in tag_name:
+                new_quote.tags.add(tag.id)
+            new_quote.save()
             return redirect(to='quotes:root')
         else:
             return render(request,'quotes/add_quote.html', context={'form': form})
